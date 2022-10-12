@@ -1,15 +1,16 @@
 import React from 'react';
-import './NavBar.scss'
+import './NavBar.scss';
+import {BrowserRouter, Routes , Route, Link} from "react-router-dom";
 
 const NavBar = () => {
     return (
         <nav className='NavBar'>
-            <a className='NavBar__link'>Главная</a>
-            <a className='NavBar__link'>Новости</a>
-            <a className='NavBar__link'>О нас</a>
-            <a className='NavBar__link'>Помощь и поддержка</a>
-            <a className='NavBar__link'>Авторизация</a>
-            <a className='NavBar__link'>Корзина</a>
+            <Link to='/' className='NavBar__link'>Главная</Link>
+            <Link to='/news' className='NavBar__link'>Новости</Link>
+            <Link to='/about' className='NavBar__link'>О нас</Link>
+            <Link to='/help' className='NavBar__link'>Помощь и поддержка</Link>
+            <Link to='/auth' className='NavBar__link'>Авторизация</Link>
+            <Link to='/cart' className='NavBar__link'>Корзина</Link>
         </nav>
     );
 };

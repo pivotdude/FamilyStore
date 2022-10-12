@@ -1,0 +1,17 @@
+.news {
+  &__banner{}
+  &__container{}
+
+  & {display: flex; justify-content: center; margin-top: 20px; align-items: center}
+  &__photo {height: 300px}
+  &__info {display: flex; justify-content: space-between; flex-direction: column; margin-left: 20px}
+  &__title {
+    font-weight: 600;
+    font-size: 20pt;
+    margin-bottom: 20px;
+  }
+  &__content {font-size: 18px; line-height: 30px}
+  &__date {
+    margin-top: 10px;
+  }
+}

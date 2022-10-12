@@ -10,3 +10,10 @@ export interface ProductModel {
     },
     photo: string,
 }
+export interface NewsModel {
+    id: number,
+    title: string,
+    content: string,
+    date: string,
+    image: string,
+}
