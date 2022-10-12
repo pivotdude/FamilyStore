@@ -1,0 +1,29 @@
+
+@mixin pt-pb($value) {
+  padding-top: $value;
+  padding-bottom: $value;
+}
+.NavBar {
+
+  & {
+    display: flex;
+    position: absolute;
+    top: 0;
+    width: 36%;
+    justify-content: space-around;
+
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  &__logo {
+    height: 20px
+  }
+
+  &__link {
+    font-size: 0.8rem;
+    --webkit-text-size-adjust: auto;
+    cursor: pointer
+  }
+
+}

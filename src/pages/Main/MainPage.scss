@@ -1,0 +1,31 @@
+.MainPage {
+  &{}
+  &__banner {
+    margin: 0 auto;
+  }
+  &__product-list-title {
+    font-weight: 600;
+    font-size: 1.4rem;
+
+    width: 100%;
+    text-align: center;
+    margin-top: 70px;
+  }
+}
+.composite-management {
+
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  &__search-and-banner {
+    padding-left: 50px;
+  }
+
+  &__banner {
+    margin-top: 20px;
+    cursor: pointer;
+    width: 100%;
+  }
+
+}

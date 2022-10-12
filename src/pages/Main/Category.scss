@@ -1,0 +1,44 @@
+@mixin pt-pb($value) {
+  padding-top: $value;
+  padding-bottom: $value;
+}
+
+.category {
+
+
+
+  &__heading {
+    font-weight: 600;
+    font-size: 1.5rem;
+    @include pt-pb(10px)
+  }
+
+  &__title {
+    & {
+      @include pt-pb(10px);
+      font-size: 20px;
+      cursor: pointer;
+    }
+    &:hover {
+      color: #FF5D88;
+      transform: scale(1.05);
+      transition: .5s;
+    }
+    &:not(:hover) {
+      color: black;
+      transform: scale(1);
+      transition: .5s;
+    }
+
+
+
+    &_child {
+      font-size: 16px;
+      margin-left: 10px;
+      @include pt-pb(5px)
+    }
+
+  }
+
+
+}
