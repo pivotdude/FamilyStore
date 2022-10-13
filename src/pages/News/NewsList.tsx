@@ -2,6 +2,7 @@ import React from 'react';
 import {NewsModel} from "../../Models";
 import News from "./News";
 import banner from "./banner3.png";
+import Banner from "../../components/Banner";
 
 interface NewsListProps {
     news: Array<NewsModel>
@@ -10,9 +11,10 @@ interface NewsListProps {
 const NewsList = (props: NewsListProps) => {
     return (
         <div className='news-list'>
-            <div className='banner news-list__banner'><img src={banner} /></div>
+            <Banner color='white' image={banner} />
+
             <div className="container news__container">
-                {props.news.map((onenews) => <News key={onenews.id} news={onenews} />)}
+                {props.news.map((onenews: NewsModel) => <News key={onenews.id} news={onenews} />)}
             </div>
         </div>
     );

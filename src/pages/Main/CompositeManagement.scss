@@ -1,0 +1,45 @@
+.composite-management {
+
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  margin: 0 auto;
+  max-width: 1900px;
+
+  &__search-and-banner {
+    padding-left: 50px;
+    max-width: 1900px;
+  }
+
+  &__banner {
+    margin-top: 20px;
+    cursor: pointer;
+    width: 100%;
+
+    max-width: 1900px;
+    //min-width: 400px;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .composite-management
+  {
+    display: block;
+    &__search-and-banner {
+      align-items: center;
+
+      padding: 0;
+      padding-top: 10px;
+
+
+    }
+
+
+
+    &__banner {
+
+    }
+  }
+
+}

@@ -1,0 +1,16 @@
+.HideNavBar {
+  & {position: absolute}
+  &__button {
+    border: 1px solid black;
+    top: 5px;
+    display: none;
+    padding: 5px;
+  }
+}
+@media only screen and (max-width: 390px) {
+  .HideNavBar {
+    &__button {
+      display: block;
+    }
+  }
+}

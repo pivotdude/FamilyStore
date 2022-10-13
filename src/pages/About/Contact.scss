@@ -1,0 +1,29 @@
+.contact {
+  margin-top: 140px;
+  display: flex;
+  height: 400px;
+  position: relative;
+
+  &__image {
+    z-index: 1;
+    width: 100%;
+    position: absolute;
+  }
+
+  &__info {
+    text-align: center;
+    z-index: 1;
+    margin-left: 250px;
+    margin-top: 150px;
+  }
+
+  &__title {
+    color: #000000;
+    font-weight: 600;
+    font-size: 14pt;
+  }
+  &__button {
+    display: inline-block;
+    margin-top: 200px;
+  }
+}

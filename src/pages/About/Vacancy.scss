@@ -1,0 +1,27 @@
+.vacancy {
+  display: flex;
+  height: 400px;
+  position: relative;
+
+  &__image {
+    z-index: 1;
+    width: 100%;
+    position: absolute;
+  }
+
+  &__info {
+    text-align: center;
+    z-index: 1;
+    margin-left: 100px;
+    margin-top: 30px;
+  }
+
+  &__title {
+    font-weight: 600;
+    font-size: 14pt;
+  }
+  &__button {
+    display: inline-block;
+    margin-top: 200px;
+  }
+}

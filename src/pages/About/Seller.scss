@@ -1,0 +1,28 @@
+.seller {
+  display: flex;
+  height: 400px;
+  position: relative;
+
+  &__image {
+    z-index: 1;
+    width: 100%;
+    position: absolute;
+  }
+
+  &__info {
+    text-align: center;
+    z-index: 1;
+    margin-left: 950px;
+    margin-top: 50px;
+  }
+
+  &__title {
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 14pt;
+  }
+  &__button {
+    display: inline-block;
+    margin-top: 100px;
+  }
+}

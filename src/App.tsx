@@ -5,8 +5,9 @@ import {BrowserRouter, Routes , Route} from "react-router-dom";
 import NavBar from "./components/NavBar";
 import {ProductModel, NewsModel} from "./Models";
 import NewsList from "./pages/News/NewsList";
-
-
+import About from "./pages/About/About";
+import './App.scss'
+import HideNavBar from "./components/HideNavBar";
 
 function App() {
     let products: Array<ProductModel> = [
@@ -27,12 +28,13 @@ function App() {
 
         <BrowserRouter>
             <header style={{width: '70%', margin: '0 auto'}}>
+                <HideNavBar />
                 <NavBar />
             </header>
           <Routes>
             <Route path='' element={<MainPage products={products} />} />
               <Route path='/news' element={<NewsList news={news} />} />
-              {/*<Route path='/about' element={<MainPage />} />*/}
+              <Route path='/about' element={<About />} />
           </Routes>
         </BrowserRouter>
       </div>

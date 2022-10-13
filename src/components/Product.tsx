@@ -11,18 +11,18 @@ const Product = (props: ProductProps) => {
     console.log(props.product)
     return (
         <div className='product'>
-            <img className='product__photo' src={props.product.photo}/>
+            <img className='product__photo' src={props.product.photo} alt={props.product.type}/>
             <div className="product-info">
-                <div>
+                <div className='product-info__col1'>
                     <p className='product-info__price'>{props.product.price}</p>
                     <p className='product-info__type'>{props.product.type}</p>
                 </div>
-                <div>
+                <div className='product-info__col2'>
                     <p className='product-info__old-price'>{props.product.oldPrice}</p>
                     <p className='product-info__producer'>{props.product.producer}</p>
                 </div>
             </div>
-            <div className='product__rating rating'>
+            <div className='product__rating'>
                 <div className="rating__stars">
                     <img src={star} />
                     <img src={star} />

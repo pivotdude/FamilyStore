@@ -1,0 +1,47 @@
+.container{
+  width: 70%;
+  margin: 0 auto;
+  overflow: hidden;
+  //max-width: 1300px
+}
+
+
+
+
+
+@media only screen and (max-width: 1230px) {
+  .container {
+    width: 80%;
+  }
+}
+@media only screen and (max-width: 1000px) {
+  .container {
+    width: 90%;
+  }
+}
+
+@media only screen and (max-width: 730px) {
+  .container {
+    width: 100%;
+  }
+}
+
+.button {
+  text-decoration: None;
+  font-weight: 600;
+  background: #000000;
+  color: #ffffff;
+  border: 2px solid black;
+  border-radius: 8px;
+  padding: 12px 20px;
+  transition: all .5s;
+
+  &:not(:hover) {
+    color: #ffffff;
+  }
+  &:hover {
+    color: rgba(255,255,255, 0.7);
+  }
+
+
+}

@@ -1,5 +1,4 @@
 import React from 'react';
-import banner from './banner3.png'
 import './News.scss'
 import {NewsModel} from "../../Models";
 
@@ -12,7 +11,7 @@ const News = (props: NewsProps) => {
         <div className='news'>
             <img className='news__photo' src={props.news.image} />
             <div className='news-item__info'>
-                <p className='news-__title'>{props.news.title}</p>
+                <p className='news__title'>{props.news.title}</p>
                 <p className='news__content'>{props.news.content}</p>
                 <p className='news__date'>{props.news.date}</p>
             </div>

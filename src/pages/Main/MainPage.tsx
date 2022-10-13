@@ -1,12 +1,13 @@
 import React from 'react';
-import Banner from './Banner.png'
-import Banner1 from './banner1.png'
-import Category from "./Category";
-import Search from "./Search";
-import './MainPage.scss'
+
 import OurAdvantages from './OurAdvantages'
 import ProductList from "../../components/ProductList";
+import Banner from "../../components/Banner";
+import CompositeManagement from "./CompositeManagement";
+
+import './MainPage.scss'
 import {ProductModel} from "../../Models";
+import banner from './img/Banner.png'
 
 interface MainPageProps {
     products: Array<ProductModel>
@@ -16,25 +17,16 @@ const MainPage = (props: MainPageProps) => {
 
     return (
         <div className='MainPage'>
-            <img className='banner MainPage__banner' src={Banner} />
+            <Banner color='pink' image={banner} />
             <div className="container MainPage__container">
-                <div className="composite-management">
-                    <Category />
+                <CompositeManagement />
 
-                    <div className="composite-management__search-and-banner">
-                        <Search />
-                        <img className='composite-management__banner' src={Banner1} />
-                    </div>
+                <div>
+                    <p className="MainPage__product-list-title">Популярные товары</p>
+                    <ProductList products={props.products} />
                 </div>
-                <div className="MainPage__product-list-title">
-                    <p>Популярные товары</p>
-                </div>
-                <ProductList products={props.products} />
+
                 <OurAdvantages />
-
-
-
-
             </div>
         </div>
     );

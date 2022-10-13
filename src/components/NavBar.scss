@@ -4,29 +4,71 @@
   padding-bottom: $value;
 }
 .NavBar {
-
   & {
     display: flex;
     position: absolute;
     top: 0;
     width: 36%;
     justify-content: space-around;
-
-    padding-top: 10px;
-    padding-bottom: 10px;
+    @include pt-pb(10px);
   }
-
-  &__logo {
-    height: 20px
-  }
-
+  &__logo {height: 20px}
   &__link {
     color: black;
     text-decoration: None;
-
-    font-size: 0.8rem;
+    font-size: 12px;
     --webkit-text-size-adjust: auto;
     cursor: pointer
   }
+}
 
+
+@media only screen and (max-width: 1300px) {
+  .NavBar {
+    width: 40%;
+  }
+}
+@media only screen and (max-width: 1160px) {
+  .NavBar {
+    width: 42%;
+  }
+}
+@media only screen and (max-width: 1080px) {
+  .NavBar {
+    & {}
+    &__link {
+      font-size: 10px;
+    }
+  }
+}
+@media only screen and (max-width: 870px) {
+  .NavBar {
+    width: 45%;
+  }
+}
+@media only screen and (max-width: 790px) {
+  .NavBar {
+    & {}
+    &__link {
+      font-size: 8px;
+    }
+  }
+}
+@media only screen and (max-width: 660px) {
+  .NavBar {
+    width: 50%;
+  }
+}
+@media only screen and (max-width: 570px) {
+  .NavBar {
+    width: 55%;
+    &__link {
+      font-size: 6px;
+    }
+  }
+}
+@media only screen and (max-width: 390px) {
+  .NavBar {
+    display: none;
+  }
 }

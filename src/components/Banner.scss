@@ -1,0 +1,31 @@
+.banner {
+  & {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+  };
+
+  &-bg {
+    & {
+      height: 100%;
+      width: 100%;
+    };
+
+    &_grey {
+      background: #d6d4d6;
+    };
+
+    &_white {
+      background: #ffffff;
+    }
+
+    &_pink {
+      background: #F2E4E7;
+    };
+  }
+}
+@media only screen and (max-width: 1830px) {
+  .banner{
+    &{width: 100%}
+  }
+}
