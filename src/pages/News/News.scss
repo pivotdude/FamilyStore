@@ -2,8 +2,8 @@
   &__banner{}
   &__container{}
 
-  & {display: flex; justify-content: center; margin-top: 20px; align-items: center}
-  &__photo {height: 300px}
+  & {display: flex; justify-content: center; margin-top: 40px; align-items: center}
+  &__image {height: 300px}
   &__info {display: flex; justify-content: space-between; flex-direction: column; margin-left: 20px}
   &__title {
     font-weight: 600;
@@ -13,5 +13,51 @@
   &__content {font-size: 18px; line-height: 30px}
   &__date {
     margin-top: 10px;
+  }
+}
+@media only screen and (max-width: 960px) {
+  .news {
+    & {}
+    &__image {height: 300px}
+  }
+}
+@media only screen and (max-width: 960px) {
+  .news {
+    & {}
+    &__image {height: 250px}
+  }
+}
+@media only screen and (max-width: 800px) {
+  .news {
+    & {}
+    &__image {height: 200px}
+  }
+}
+@media only screen and (max-width: 680px) {
+  .news {
+    & {}
+    &__image {height: 200px}
+    &__title {font-size: 18px}
+    &__content {font-size: 16px}
+    &__date {font-size: 9px}
+  }
+}
+@media only screen and (max-width: 500px) {
+  .news {
+    & {display: block}
+    &__image {height: 200px; display: flex; margin: 0 auto}
+
+    &__info{margin: 5px}
+
+    &__title {font-size: 18px}
+    &__content {font-size: 16px}
+    &__date {font-size: 12px}
+  }
+}
+@media only screen and (max-width: 300px) {
+  .news {
+    &__title {font-size: 14px}
+    &__content {font-size: 12px}
+    &__date {font-size: 12px}
   }
 }

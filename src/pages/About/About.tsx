@@ -16,9 +16,12 @@ const About = () => {
             <Banner color='grey' image={banner} />
             <div className="container about__container">
                 <Ability />
-                <Vacancy />
-                <Seller />
-                <Contact />
+                <div className="banners-page">
+                    <Vacancy />
+                    <Seller />
+                    <Contact />
+                </div>
+
             </div>
         </div>
 
