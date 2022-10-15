@@ -21,7 +21,6 @@ const About = () => {
                     <Seller />
                     <Contact />
                 </div>
-
             </div>
         </div>
 

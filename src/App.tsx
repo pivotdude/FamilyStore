@@ -8,6 +8,7 @@ import NewsList from "./pages/News/NewsList";
 import About from "./pages/About/About";
 import './App.scss'
 import HideNavBar from "./components/HideNavBar";
+import Support from "./pages/Support/Support";
 
 function App() {
     let products: Array<ProductModel> = [
@@ -31,10 +32,12 @@ function App() {
                 <HideNavBar />
                 <NavBar />
             </header>
+
           <Routes>
             <Route path='' element={<MainPage products={products} />} />
               <Route path='/news' element={<NewsList news={news} />} />
               <Route path='/about' element={<About />} />
+              <Route path='/support' element={<Support />} />
           </Routes>
         </BrowserRouter>
       </div>

@@ -4,10 +4,9 @@ import OurAdvantages from './OurAdvantages'
 import ProductList from "../../components/ProductList";
 import Banner from "../../components/Banner";
 import CompositeManagement from "./CompositeManagement";
-
-import './MainPage.scss'
 import {ProductModel} from "../../Models";
 import banner from './img/Banner.png'
+import PopularProduct from './PopularProducts'
 
 interface MainPageProps {
     products: Array<ProductModel>
@@ -20,12 +19,7 @@ const MainPage = (props: MainPageProps) => {
             <Banner color='pink' image={banner} />
             <div className="container MainPage__container">
                 <CompositeManagement />
-
-                <div>
-                    <p className="MainPage__product-list-title">Популярные товары</p>
-                    <ProductList products={props.products} />
-                </div>
-
+                <PopularProduct products={props.products} />
                 <OurAdvantages />
             </div>
         </div>
