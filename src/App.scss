@@ -4,11 +4,6 @@
   overflow: hidden;
   //max-width: 1300px
 }
-
-
-
-
-
 @media only screen and (max-width: 1230px) {
   .container {
     width: 80%;
@@ -23,6 +18,15 @@
 @media only screen and (max-width: 730px) {
   .container {
     width: 100%;
+  }
+}
+
+input {
+  & {border: 0}
+  &:hover, &:active, &:focus {
+    outline: 0;
+    outline-offset: 0;
+    border-bottom: 1px solid black;
   }
 }
 

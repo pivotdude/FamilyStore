@@ -9,8 +9,8 @@ interface PopularProductsProps {
 
 const PopularProducts = (props: PopularProductsProps) => {
     return (
-        <div className='product-list'>
-            <p className="product-list__title">Популярные товары</p>
+        <div className='popular-product'>
+            <p className="popular-product__title">Популярные товары</p>
             <ProductList products={props.products} />
         </div>
     );

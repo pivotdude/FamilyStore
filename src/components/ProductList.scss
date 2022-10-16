@@ -1,4 +1,4 @@
-.product-list {
+.products-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -8,7 +8,7 @@
   max-width: 1900px;
 }
 @media only screen and (max-width: 950px) {
-  .product-list {
+  .products-list {
     justify-content: center;
   }
 }

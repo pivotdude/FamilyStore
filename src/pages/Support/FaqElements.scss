@@ -6,7 +6,6 @@
     line-height: 29px;
   }
 }
-
 .FAQ-element {
   & {
     display: flex;
@@ -17,6 +16,9 @@
     align-items: center;
     cursor: pointer;
 
+    &:hover {
+      border-bottom: 1px solid black;
+    }
   }
   &__title {
     font-size: 18px;
@@ -31,5 +33,48 @@
 
   &__content {
     display: none;
+  }
+}
+@media only screen and (max-width: 690px) {
+  .FAQ {
+    &__title {
+      font-size: 22px;
+    }
+  }
+  .FAQ-element {
+    &__title {
+      font-size: 16px;
+    }
+  }
+}
+@media only screen and (max-width: 380px) {
+  .FAQ {
+    &__title {
+      font-size: 20px;
+    }
+  }
+  .FAQ-element {
+    &__title {
+      font-size: 14px;
+    }
+  }
+}
+@media only screen and (max-width: 325px) {
+  .FAQ {
+    &__title {
+      font-size: 18px;
+    }
+  }
+}
+@media only screen and (max-width: 293px) {
+  .FAQ {
+    &__title {
+      font-size: 16px;
+    }
+  }
+  .FAQ-element {
+    &__title {
+      font-size: 12px;
+    }
   }
 }

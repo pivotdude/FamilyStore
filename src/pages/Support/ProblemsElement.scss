@@ -12,6 +12,14 @@
     padding-right: 30px;
     padding-bottom: 30px;
     margin: 0 auto;
+    &:hover {
+      transform: scale(1.04);
+      transition: .5s;
+    }
+    &:not(:hover) {
+      transform: scale(1);
+      transition: .5s;
+    }
   }
 
   &__item {
@@ -20,6 +28,8 @@
     width: 100px;
     text-align: center;
     cursor: pointer;
+
+
   }
 
   &__title {
@@ -34,7 +44,7 @@
   }
 }
 
-@media only screen and (max-width: 651px) {
+@media only screen and (max-width: 655px) {
   .problems-elements {
       justify-content: center;
     &__item {
