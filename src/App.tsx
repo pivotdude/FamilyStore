@@ -10,14 +10,11 @@ import './App.scss'
 import HideNavBar from "./components/HideNavBar";
 import Support from "./pages/Support/Support";
 import Authorization from "./pages/Authorization/Authorization";
+import Cart from './pages/Cart/Cart'
+import products from "./Products";
 
 function App() {
-    let products: Array<ProductModel> = [
-        {id: 1,price: 2002, type: 'Топ', oldPrice: 3240, producer: 'Versuch', rating: {rate: 4.9, count: 26}, photo: 'https://images.wbstatic.net/big/new/69470000/69474532-1.jpg'},
-        {id: 2, price: 2002, type: 'Топ', oldPrice: 3240, producer: 'Versuch', rating: {rate: 4.9, count: 26}, photo: 'https://images.wbstatic.net/c516x688/new/14730000/14739120-1.jpg'},
-        {id: 3, price: 2002, type: 'Топ', oldPrice: 3240, producer: 'Versuch', rating: {rate: 4.9, count: 26}, photo: 'https://images.wbstatic.net/big/new/19070000/19075889-1.jpg'},
-        {id: 4, price: 2002, type: 'Топ', oldPrice: 3240, producer: 'Versuch', rating: {rate: 4.9, count: 26}, photo: 'https://images.wbstatic.net/big/new/27980000/27987701-1.jpg'},
-    ]
+
     let news: Array<NewsModel> = [
         {id: 1, title: 'О насм ип и', content: 'ОСмочорапрр ыврп рыврп рывар рывар рфыар ыфра рвырар вырар ывра рывра ОСмочоОСмочорапрр ыврп рыврп рывар рывар рфыар ыфра рвырар вырар ывра рыврарапрр ыврп рыврп рывар рывар рфыар ыфра рвырар вырар ывра рывра', date: '20.08.2022', image: 'https://img2.freepng.ru/20180711/qkj/kisspng-organization-buildi-we-are-open-5b46be52b96052.2387322915313628987593.jpg'},
         {id: 2, title: 'О насм ип и', content: 'ОСмочорапрр ыврп рыврп рывар рывар рфыар ыфра рвырар вырар ывра рывра ОСмоОСмочорапрр ыврп рыврп рывар рывар рфыар ыфра рвырар вырар ывра рыврачорапрр ыврп рыврп рывар рывар рфыар ыфра рвырар вырар ывра рывра', date: '20.08.2022', image: 'https://img2.freepng.ru/20180711/qkj/kisspng-organization-buildi-we-are-open-5b46be52b96052.2387322915313628987593.jpg'},
@@ -40,6 +37,7 @@ function App() {
               <Route path='/about' element={<About />} />
               <Route path='/support' element={<Support />} />
               <Route path='/authorization' element={<Authorization />} />
+              <Route path='/cart' element={<Cart products={products} />} />
           </Routes>
         </BrowserRouter>
       </div>

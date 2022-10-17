@@ -1,5 +1,7 @@
 export interface ProductModel {
     id: number,
+    title: string,
+    description: string,
     price: number,
     type: string,
     oldPrice: number,
@@ -8,7 +10,10 @@ export interface ProductModel {
         rate: number,
         count: number,
     },
-    photo: string,
+    photos: {
+        big: Array<string>,
+        small: Array<string>,
+    }
 }
 export interface NewsModel {
     id: number,
