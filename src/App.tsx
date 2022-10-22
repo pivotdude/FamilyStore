@@ -15,6 +15,9 @@ import products from "./Products";
 
 function App() {
 
+    console.log(JSON.stringify(products))
+
+
     let news: Array<NewsModel> = [
         {id: 1, title: 'О насм ип и', content: 'ОСмочорапрр ыврп рыврп рывар рывар рфыар ыфра рвырар вырар ывра рывра ОСмочоОСмочорапрр ыврп рыврп рывар рывар рфыар ыфра рвырар вырар ывра рыврарапрр ыврп рыврп рывар рывар рфыар ыфра рвырар вырар ывра рывра', date: '20.08.2022', image: 'https://img2.freepng.ru/20180711/qkj/kisspng-organization-buildi-we-are-open-5b46be52b96052.2387322915313628987593.jpg'},
         {id: 2, title: 'О насм ип и', content: 'ОСмочорапрр ыврп рыврп рывар рывар рфыар ыфра рвырар вырар ывра рывра ОСмоОСмочорапрр ыврп рыврп рывар рывар рфыар ыфра рвырар вырар ывра рыврачорапрр ыврп рыврп рывар рывар рфыар ыфра рвырар вырар ывра рывра', date: '20.08.2022', image: 'https://img2.freepng.ru/20180711/qkj/kisspng-organization-buildi-we-are-open-5b46be52b96052.2387322915313628987593.jpg'},

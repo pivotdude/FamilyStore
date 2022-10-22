@@ -1,5 +1,6 @@
 import {ProductModel} from "./Models";
 
+
 let products: Array<ProductModel> = [
     { // https://www.wildberries.ru/catalog/88539290/detail.aspx
         id: 1,
