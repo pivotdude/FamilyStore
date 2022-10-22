@@ -8,18 +8,18 @@ import {ProductModel} from "../../Models";
 import banner from './img/Banner.png'
 import PopularProduct from './PopularProducts'
 
-interface MainPageProps {
-    products: Array<ProductModel>
-}
+// interface MainPageProps {
+//     products: Array<ProductModel>
+// }
 
-const MainPage = (props: MainPageProps) => {
+const MainPage = () => {
 
     return (
         <div className='MainPage'>
             <Banner color='pink' image={banner} />
             <div className="container MainPage__container">
                 <CompositeManagement />
-                <PopularProduct products={props.products} />
+                <PopularProduct />
                 <OurAdvantages />
             </div>
         </div>

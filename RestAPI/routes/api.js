@@ -6,6 +6,7 @@ const jwt = require('jsonwebtoken')
 let User = require('../models/User')
 let Product = require('../models/Product')
 
+
 router.post(
     '/registration',
     [
@@ -100,6 +101,7 @@ router.post(
 router.get( // ?limit=5                  //   ?filter={"type":"Jeans","price":1}
     '/products',
     async function (req,res, next) {
+        res.setHeader('Access-Control-Allow-Origin', '*')
         try {
             let limit = 40
             let filter = {}

@@ -1,17 +1,41 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import ProductList from "../../components/ProductList";
+import {useDispatch, useSelector} from "react-redux";
+import {fetchProducts} from "./../../redux/actions";
+
 import {ProductModel} from "../../Models";
 import './PopularProducts.scss'
 
-interface PopularProductsProps {
-    products: Array<ProductModel>
-}
 
-const PopularProducts = (props: PopularProductsProps) => {
+// interface PopularProductsProps {
+//     products: Array<ProductModel>
+// }
+//props: PopularProductsProps
+const PopularProducts = () => {
+    const dispatch = useDispatch()
+    const products = useSelector(state => state.products.fetchedProducts)
+    const loading = useSelector(state => state.app.loading)
+    const [load, setLoad] = useState(false)
+
+    useEffect(() => {
+        dispatch(fetchProducts())
+        setLoad(true)
+    }, [])
+
+    if (!load) {
+        return null
+    }
+
+    if (loading) {
+        return <p>Loading...</p>
+    }
+
+
+
     return (
         <div className='popular-product'>
             <p className="popular-product__title">Популярные товары</p>
-            <ProductList products={props.products} />
+            <ProductList products={products} />
         </div>
     );
 };
