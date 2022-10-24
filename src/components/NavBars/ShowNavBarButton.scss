@@ -1,6 +1,6 @@
 .HideNavBar {
-  & {position: absolute}
   &__button {
+    position: absolute;
     border: 1px solid black;
     top: 5px;
     display: none;

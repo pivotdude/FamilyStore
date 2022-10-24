@@ -5,6 +5,7 @@ let {check, validationResult} = require('express-validator')
 const jwt = require('jsonwebtoken')
 let User = require('../models/User')
 let Product = require('../models/Product')
+const News = require("../models/News");
 
 
 router.post(
@@ -98,16 +99,30 @@ router.post(
     }
 )
 
+router.get('/news',
+    async function (req, res, next) {
+        let params = req.query
+        console.log(params)
+        console.log(params.limit)
+        let limit = 20
+
+        // if (params.limit) {
+        //     limit = params.limit
+        // }
+
+        let news = await News.find({}).sort({"_id": -1}).limit(limit)
+        res.status(200).json(news)
+    }
+)
+
 router.get( // ?limit=5                  //   ?filter={"type":"Jeans","price":1}
     '/products',
     async function (req,res, next) {
-        res.setHeader('Access-Control-Allow-Origin', '*')
         try {
             let limit = 40
             let filter = {}
             let params = req.query
             let skip = 0
-            console.log(params.filter)
 
             if (params.filter) {
                 filter = params.filter
@@ -120,13 +135,27 @@ router.get( // ?limit=5                  //   ?filter={"type":"Jeans","price":1}
             }
 
             let products = await Product.find(filter).limit(limit).skip(skip).sort({"price": 1})
-            console.log(products)
             res.status(200).json(products)
         } catch (e) {
             res.status(500).json({success: false, "message": `Server error: ${e}`})
         }
     }
 )
-
+router.get('/products/:productId',
+    async function (req, res, next) {
+        let id = req.params["productId"]
+        let products = await Product.findOne({id: id})
+        res.status(200).json(products)
+    }
+)
+router.get('/products/search/:searchName',
+    async function (req, res, next) {
+        let searchName = req.params["searchName"].toLowerCase()
+        let products = await Product.find({})
+        let results = products.filter(item => item.title.toLowerCase().includes(searchName));
+        console.log(results.length)
+        res.status(200).json(results)
+    }
+)
 
 module.exports = router;

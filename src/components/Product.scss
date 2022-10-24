@@ -4,19 +4,20 @@
     padding-right: 50px;
     margin-top: 20px;
     cursor: pointer;
+    max-width: 225px;
   }
 
   &__photo {
     height: 300px;
     -webkit-user-drag: none;
+    width: 225px;
+    object-fit: cover;
   }
 
   &-info {
 
     & {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
+
     }
 
     &__price {

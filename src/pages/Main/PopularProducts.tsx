@@ -15,16 +15,11 @@ const PopularProducts = () => {
     const dispatch = useDispatch()
     const products = useSelector(state => state.products.fetchedProducts)
     const loading = useSelector(state => state.app.loading)
-    const [load, setLoad] = useState(false)
 
     useEffect(() => {
         dispatch(fetchProducts())
-        setLoad(true)
     }, [])
 
-    if (!load) {
-        return null
-    }
 
     if (loading) {
         return <p>Loading...</p>

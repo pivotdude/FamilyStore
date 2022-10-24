@@ -8,10 +8,10 @@ interface ProductsProps {
 }
 
 const ProductList = (props: ProductsProps) => {
-    let products = props.products
+    console.log('render')
     return (
         <div className='products-list'>
-            {products.map((product: ProductModel) => <Product key={product.id} product={product} />)}
+            {props.products.map((product: ProductModel) => <Product key={product._id} product={product} />)}
         </div>
     );
 };

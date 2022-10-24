@@ -1,7 +1,7 @@
 import React from 'react';
-import './Search.scss'
+import './SupportSearch.scss'
 
-const Search = () => {
+const SupportSearch = () => {
     return (
         <div className="search search_support">
             <input placeholder='Что вы хотите?' className='search__input' />
@@ -14,4 +14,4 @@ const Search = () => {
     );
 };
 
-export default Search;
+export default SupportSearch;

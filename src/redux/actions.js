@@ -1,32 +1,32 @@
-import {CREATE_PRODUCT, FETCH_PRODUCTS, SHOW_LOADER, HIDE_LOADER} from './types'
+import {FETCH_PRODUCTS, SEARCH_PRODUCTS, SHOW_LOADER, HIDE_LOADER, FETCH_NEWS} from './types'
 
-export function createProducts(product) {
-    return {
-        type: CREATE_PRODUCT,
-        payload: product
-    }
-}
-
-export function showLoader() {
-    return {
-        type: SHOW_LOADER,
-    }
-}
-
-export function hideLoader() {
-    return {
-        type: HIDE_LOADER,
+function fetchRequest(route, types) {
+    return async dispatch => {
+        dispatch(showLoader())
+        const response = await fetch(`http://localhost:3001/api/${route}`)
+        const json = await response.json()
+        dispatch({type: types, payload: json})
+        dispatch(hideLoader())
     }
 }
 
 export function fetchProducts() {
-    return async dispatch => {
-        dispatch(showLoader())
+    return fetchRequest('products', FETCH_PRODUCTS)
+}
 
-        const response = await fetch('http://localhost:3001/api/products/')
-        const json = await response.json()
-        console.log(json)
-        dispatch({type: FETCH_PRODUCTS, payload: json})
-        dispatch(hideLoader())
-    }
+export function fetchProductsOnSearch(name) {
+    return fetchRequest(`products/search/${name}`, SEARCH_PRODUCTS)
+}
+
+export function fetchNews() {
+    return fetchRequest(`news`, FETCH_NEWS)
+}
+
+// APPReducer
+export function showLoader() {
+    return {type: SHOW_LOADER}
+}
+
+export function hideLoader() {
+    return {type: HIDE_LOADER}
 }

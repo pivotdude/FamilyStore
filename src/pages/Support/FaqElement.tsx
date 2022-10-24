@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import plus from './img/plus.svg'
 import './FaqElements.scss'
 
@@ -8,11 +8,30 @@ interface FaqElementProps {
 }
 
 const FaqElement = (props: FaqElementProps) => {
+
+    let [isShowed, setIsShowed] = useState(false)
+
+    const ShowContent = (e: React.ChangeEvent<HTMLInputElement>) => {
+        let node = e.target.parentNode.children[0].children[1]
+
+        setIsShowed(prev => !prev)
+
+        if (isShowed) {
+            node.style.display = 'none'
+        } else {
+            node.style.display = 'block'
+        }
+
+    }
     return (
         <div className='FAQ-element'>
-            <p className='FAQ-element__title'>{props.title}</p>
-            <img className='FAQ-element__image' src={plus} />
-            <p className='FAQ-element__content'>{props.content}</p>
+
+            <div className='FAQ-element__info'>
+                <p className='FAQ-element__title'>{props.title}</p>
+                <p className='FAQ-element__content'>{props.content}</p>
+            </div>
+
+            <img onClick={ShowContent} className='FAQ-element__image' src={plus} />
         </div>
     );
 };
