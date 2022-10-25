@@ -7,7 +7,7 @@ const ShowNavBarButton = () => {
     let [isShowFullNav, setIsShowFullNav] = useState(false)
 
     function showFullNav() {
-        let main = document.querySelector('main')
+        let main = document.querySelector('main') as HTMLElement
         main.style.display = 'none'
         setIsShowFullNav(true)
     }

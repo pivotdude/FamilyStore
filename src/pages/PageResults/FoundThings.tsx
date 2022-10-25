@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import ProductList from "../../components/ProductList";
 import {useDispatch, useSelector} from "react-redux";
 import {useParams} from "react-router-dom";
-import {fetchProductsOnSearch} from "./../../redux/actions";
+import {fetchProductsOnSearch} from "../../redux/actions";
 import Loading from "../../components/Loading";
 
 const FoundThings = () => {

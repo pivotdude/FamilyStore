@@ -13,6 +13,7 @@ router.post(
     [
         check('email', 'Некорректный email').isEmail(),
         check('password', "Пароль должен содержать содержать одну строчную букву, одну заглавную букву и одну цифру и иметь минимум 3 знака").matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{3,64}$/),
+        check('login', "Логин должен состоять минимум из 4 букв").exists(),
         check('first_name', 'Поле "Имя" должно быть заполнено').exists(),
         check('last_name', 'Поле "Фамилия" должно быть заполнено').exists()
     ],
@@ -55,10 +56,11 @@ router.post(
     ],
     async function (req, res) {
         try {
+            console.log(req.body)
             const errors = validationResult(req)
             if (!errors.isEmpty()) {
-                return res.status(400).json({success: false, message: errors.array().map(item => item.msg).join(' , ')}) // errors: errors.array()
-            }
+                return res.status(400).json({success: false, message: errors.array()})} //.map(item => item.msg).join(' , ')}) // errors: errors.array()
+
             const {email, password} = req.body
             const user = await User.findOne({email})
             if (!user) {

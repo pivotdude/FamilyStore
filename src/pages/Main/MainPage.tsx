@@ -1,16 +1,9 @@
 import React from 'react';
-
 import OurAdvantages from './OurAdvantages'
-import ProductList from "../../components/ProductList";
 import Banner from "../../components/Banner";
 import CompositeManagement from "./CompositeManagement";
-import {ProductModel} from "../../Models";
 import banner from './img/Banner.png'
 import PopularProduct from './PopularProducts'
-
-// interface MainPageProps {
-//     products: Array<ProductModel>
-// }
 
 const MainPage = () => {
 

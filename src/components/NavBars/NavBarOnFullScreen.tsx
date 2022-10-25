@@ -2,13 +2,13 @@ import React from 'react';
 import './NavBarOnFullScreent.scss'
 
 interface NavBarOnFullScreenProps {
-    changeStateFullNav: string
+    changeStateFullNav: Function
 }
 
 const NavBarOnFullScreen = (props: NavBarOnFullScreenProps) => {
 
     function hideFullNav() {
-        let main = document.querySelector('main')
+        let main = document.querySelector('main') as HTMLElement
         main.style.display = 'block'
         props.changeStateFullNav()
     }

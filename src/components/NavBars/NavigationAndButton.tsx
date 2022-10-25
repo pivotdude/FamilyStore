@@ -1,17 +1,14 @@
 import React from 'react';
 import NavBar from "./NavBar";
 import ShowNavBarButton from "./ShowNavBarButton";
-import NavBarOnFullScreen from "./NavBarOnFullScreen";
+import './NavigationAndButton.scss'
 
 const NavigationAndButton = () => {
-
-
-
     return (
-        <>
+        <div className='navigation-and-button'>
             <ShowNavBarButton />
             <NavBar />
-        </>
+        </div>
 
     );
 };

@@ -12,6 +12,7 @@ import Cart from './pages/Cart/Cart'
 import products from "./Products";
 import ResultPage from "./pages/PageResults/ResultPage";
 import NavigationAndButton from "./components/NavBars/NavigationAndButton";
+import Registration from "./pages/Authorization/Registration";
 
 function App() {
   return (
@@ -20,9 +21,7 @@ function App() {
 
 
             <header>
-                <div style={{width: '70%', margin: '0 auto'}}>
-                    <NavigationAndButton />
-                </div>
+                <NavigationAndButton />
             </header>
 
             <main>
@@ -33,10 +32,10 @@ function App() {
                   <Route path='/about' element={<About />} />
                   <Route path='/support' element={<Support />} />
                   <Route path='/authorization' element={<Authorization />} />
+                  <Route path='/registration' element={<Registration />} />
                   <Route path='/cart' element={<Cart products={products} />} />
               </Routes>
             </main>
-
 
         </BrowserRouter>
       </div>

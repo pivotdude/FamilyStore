@@ -4,22 +4,11 @@ import { useNavigate } from "react-router-dom";
 
 const Search = () => {
     const navigate = useNavigate();
-    let [search, setSearch] = useState()
-    console.log(search)
+    let [search, setSearch] = useState('')
 
     const searchHandler = function () {
         navigate(`/products/search/${search}`);
     }
-
-    // useEffect(() => {
-    //     input.addEventListener('keydown', e => {
-    //         console.log(e.code)
-    //         if (e.code == 'Enter') {
-    //             searchHandler()
-    //         }
-    //     })
-    // }, [])
-
 
     return (
         <div className="search">
