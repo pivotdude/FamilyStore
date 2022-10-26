@@ -7,15 +7,12 @@ let User = require('../models/User')
 let Product = require('../models/Product')
 const News = require("../models/News");
 
-
 router.post(
     '/registration',
     [
         check('email', 'Некорректный email').isEmail(),
         check('password', "Пароль должен содержать содержать одну строчную букву, одну заглавную букву и одну цифру и иметь минимум 3 знака").matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{3,64}$/),
         check('login', "Логин должен состоять минимум из 4 букв").exists(),
-        check('first_name', 'Поле "Имя" должно быть заполнено').exists(),
-        check('last_name', 'Поле "Фамилия" должно быть заполнено').exists()
     ],
     async function (req, res) {
         try {
@@ -27,7 +24,7 @@ router.post(
                 })
             }
 
-            const {email, password, first_name, last_name} = req.body
+            const {email, password, login} = req.body
 
             const candidate = await User.findOne({email})
             if (candidate) {
@@ -35,12 +32,10 @@ router.post(
             }
 
             const hasedPassword = await bcrypt.hash(password, 12)
-            const user = new User({email, password: hasedPassword, first_name, last_name})
+            const user = new User({email, password: hasedPassword, login, cart: []}) // В место массива в последствии передавать value из localstorage
             await user.save()
 
             res.status(201).json({success: true, message: "Пользователь создан"})
-
-
 
         } catch (e) {
             res.status(500).json({"message": `${e}`})
@@ -51,7 +46,7 @@ router.post(
 
 router.post(
     '/login', [
-        check('email', 'Введён не корректный email').normalizeEmail().isEmail(),
+        check('email', 'Введён не корректный email').isEmail(),
         check('password', 'Пароль должен быть введён').exists()
     ],
     async function (req, res) {
@@ -71,7 +66,7 @@ router.post(
                 return res.status(400).json({success: false, message: 'Некорректные данные'})
             }
             const token = jwt.sign(
-                {userId: user.id},
+                {userId: user._id},
                 'dsdadasdsad',
                 {expiresIn: '1h'}
             )
@@ -79,7 +74,7 @@ router.post(
                 success: true,
                 message: '',
                 token,
-                //UserId: user.id
+                UserId: user._id
             }) // Ответ на логин
         } catch (e) {
             res.status(500).json({"message": `${e}`})

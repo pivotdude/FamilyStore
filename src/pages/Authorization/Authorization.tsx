@@ -6,20 +6,31 @@ import useInput from "../../hooks/useInput";
 import {useDispatch, useSelector} from "react-redux";
 import {StateModel} from "../../Models";
 import {authAction} from "../../redux/actions";
+import {useNavigate} from "react-router-dom";
 
 const Authorization = () => {
+    const navigate = useNavigate()
     const email = useInput()
     const password = useInput()
-
-    console.log(email.value)
 
     const dispatch: Function  = useDispatch()
     const auth: object = useSelector((state: StateModel) => state.authorization.auth)
     const loading: boolean = useSelector((state: StateModel) => state.app.loading)
 
-    if (loading) {
-        return <p>Loading...</p>
-    }
+    useEffect(() => {
+        if (auth) {
+            console.log(auth)
+            localStorage.setItem("login", JSON.stringify([auth.token, auth.UserId]))
+        }}, [auth])
+
+    useEffect(() => {
+        let login = localStorage.getItem("login") ?? null
+        if (login) {
+            navigate('/')
+        }
+    }, [auth])
+
+
 
     const submitHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         const data = {

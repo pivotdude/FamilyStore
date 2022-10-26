@@ -1,16 +1,43 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import './Registration.scss'
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import useInput from "../../hooks/useInput";
 import AuthInput from "./AuthInput";
+import {useDispatch, useSelector} from "react-redux";
+import {StateModel} from "../../Models";
+import {authAction, regAction} from "../../redux/actions";
 
 const Registration = () => {
+    const navigate = useNavigate()
+
     const email = useInput()
     const login = useInput()
     const password = useInput()
 
+    const dispatch: Function  = useDispatch()
+    const reg: object = useSelector((state: StateModel) => state.authorization.reg)
+    const loading: boolean = useSelector((state: StateModel) => state.app.loading)
+
+    useEffect(() => {
+        let login = localStorage.getItem("login") ?? null
+        if (login) {
+            navigate('/authorization')
+        }
+    }, [reg])
+
+    if (loading) {
+        return <p>Loading...</p>
+    }
+
+
+
     const submitHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-        console.log('Форма send')
+        const data = {
+            email: email.value,
+            password: password.value,
+            login: login.value
+        }
+        dispatch(regAction(data))
     }
 
     return (

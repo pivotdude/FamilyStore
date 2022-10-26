@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import './App.scss';
 import MainPage from './pages/Main/MainPage'
 import {BrowserRouter, Routes , Route} from "react-router-dom";
@@ -15,6 +15,16 @@ import NavigationAndButton from "./components/NavBars/NavigationAndButton";
 import Registration from "./pages/Authorization/Registration";
 
 function App() {
+
+    let login = localStorage.getItem("login") ?? null
+    if (login) {
+        console.log(login)
+        console.log('Logginin')
+    } else {
+        console.log('unloginin')
+    }
+
+
   return (
       <div className='App'>
         <BrowserRouter>
