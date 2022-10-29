@@ -3,10 +3,10 @@ const {Schema, model} = require(`mongoose`)
 const schema = new Schema({
     title: String,
     description: String,
-    sales: Number,
     type: String,
     composition: String,
     producer: String,
+    sales: Number,
     rating: {
         rate: Number,
         count: Number,
@@ -16,21 +16,21 @@ const schema = new Schema({
             price: Number,
             oldPrice: Number,
             color_title: String,
-            album: String,
+            image: String,
             photos: {
                 big: [String],
                 small: [String],
             },
+            sizes: [
+                {
+                    InternationalSize: String,
+                    RussianSize: String,
+                    Count: Number,
+                }
+            ]
         },
     ],
-    sizes: [
-        {
-            InternationalSize: String,
-            RussianSize: String,
-            Waist: String, // Обхват бёдр
-            Girth: String // Обхват талии
-        }
-    ]
+
 })
 
 module.exports = model('Product', schema)

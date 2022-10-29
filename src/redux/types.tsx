@@ -8,6 +8,7 @@ export const FETCH_NEWS = 'POST/FETCH_NEWS'
 // AuthorizationReducer
 export const AUTHORIZATION = 'AUTH/AUTHORIZATION'
 export const REGISTRATION = 'AUTH/REGISTRATION'
+export const LOGOUT = 'AUTH/LOGOUT'
 
 // APPReducer
 export const SHOW_LOADER = 'APP/SHOW_LOADER'

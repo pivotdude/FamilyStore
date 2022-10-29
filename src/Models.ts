@@ -25,6 +25,18 @@ export interface NewsModel {
     image: string,
 }
 
+interface validationErrors {
+    location: string,
+    msg: string,
+    param: string,
+    value: string
+}
+
+export interface regModel {
+    success: boolean,
+    message: string | Array<validationErrors>
+}
+
 export interface StateModel {
     app: {
         loading: boolean
@@ -38,6 +50,6 @@ export interface StateModel {
     },
     authorization: {
         auth: object,
-        reg: object,
+        reg: regModel
     }
 }

@@ -1,6 +1,6 @@
 import {useState} from "react";
 
-export default function useInput() {
+export default function useInput(name: string, type: 'text' | 'email' | 'password' ) {
     const [value, setValue] = useState('')
 
     const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -8,6 +8,6 @@ export default function useInput() {
     }
 
     return {
-        value, onChange
+        value, onChange, name, type
     }
 }

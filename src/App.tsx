@@ -13,10 +13,12 @@ import products from "./Products";
 import ResultPage from "./pages/PageResults/ResultPage";
 import NavigationAndButton from "./components/NavBars/NavigationAndButton";
 import Registration from "./pages/Authorization/Registration";
+import Profile from './pages/Profile/Profile'
+import Notification from "./components/Notification/Notification";
 
 function App() {
 
-    let login = localStorage.getItem("login") ?? null
+    let login = localStorage.getItem("login")
     if (login) {
         console.log(login)
         console.log('Logginin')
@@ -43,9 +45,12 @@ function App() {
                   <Route path='/support' element={<Support />} />
                   <Route path='/authorization' element={<Authorization />} />
                   <Route path='/registration' element={<Registration />} />
+                  <Route path='/profile' element={<Profile />} />
                   <Route path='/cart' element={<Cart products={products} />} />
               </Routes>
+
             </main>
+
 
         </BrowserRouter>
       </div>

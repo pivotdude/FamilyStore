@@ -1,4 +1,4 @@
-import {AUTHORIZATION, REGISTRATION} from './types'
+import {AUTHORIZATION, LOGOUT, REGISTRATION} from './types'
 import {ActionModel} from "./ActionModel";
 
 interface authorizationReducerModel {
@@ -18,6 +18,9 @@ export const authorizationReducer = (state = <authorizationReducerModel> initial
 
         case REGISTRATION:
             return {...state, reg: action.payload}
+
+        case LOGOUT:
+            return {...state, auth: ''}
 
         default: return state
     }

@@ -1,4 +1,13 @@
-import {FETCH_PRODUCTS, SEARCH_PRODUCTS, SHOW_LOADER, HIDE_LOADER, FETCH_NEWS, AUTHORIZATION, REGISTRATION} from './types'
+import {
+    FETCH_PRODUCTS,
+    SEARCH_PRODUCTS,
+    SHOW_LOADER,
+    HIDE_LOADER,
+    FETCH_NEWS,
+    AUTHORIZATION,
+    REGISTRATION,
+    LOGOUT
+} from './types'
 
 function fetchGETRequest(route: string, types: string):Object {
     return async (dispatch: Function) => {
@@ -53,4 +62,8 @@ export function authAction(data: object):object {
 export function regAction(data: object):object {
     console.log(data)
     return fetchPostRequest('registration', REGISTRATION, data)
+}
+
+export function LogoutAction():object {
+    return {type: LOGOUT}
 }

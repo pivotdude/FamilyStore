@@ -6,21 +6,23 @@ const jwt = require('jsonwebtoken')
 let User = require('../models/User')
 let Product = require('../models/Product')
 const News = require("../models/News");
+const SECRET_TOKEN = ')3=o_)4z5ybqu&@1lhz!oirjvn=ss=(te)3tbyf6_6llw1+dmn'
 
 router.post(
     '/registration',
     [
         check('email', 'Некорректный email').isEmail(),
-        check('password', "Пароль должен содержать содержать одну строчную букву, одну заглавную букву и одну цифру и иметь минимум 3 знака").matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{3,64}$/),
+        check('password', "Пароль должен состоять минимум из 6 символов").isLength({min: 6}),
         check('login', "Логин должен состоять минимум из 4 букв").exists(),
     ],
     async function (req, res) {
         try {
             const errors = validationResult(req)
             if (!errors.isEmpty()) {
+
                 return res.status(400).json({
                     success: false,
-                    message: errors.array() //.map(item => item.msg).join(' , ')
+                    message: errors.array() //  //
                 })
             }
 
@@ -45,21 +47,22 @@ router.post(
 
 
 router.post(
-    '/login', [
-        check('email', 'Введён не корректный email').isEmail(),
-        check('password', 'Пароль должен быть введён').exists()
-    ],
+    '/login',
+    // [
+    //     check('email', 'Введён не корректный email').isEmail(),
+    //     check('password', 'Пароль должен быть введён').exists()
+    // ],
     async function (req, res) {
         try {
             console.log(req.body)
-            const errors = validationResult(req)
-            if (!errors.isEmpty()) {
-                return res.status(400).json({success: false, message: errors.array()})} //.map(item => item.msg).join(' , ')}) // errors: errors.array()
+            // const errors = validationResult(req)
+            // if (!errors.isEmpty()) {
+            //     return res.status(400).json({success: false, message: errors.array()})} //.map(item => item.msg).join(' , ')}) // errors: errors.array()
 
             const {email, password} = req.body
             const user = await User.findOne({email})
             if (!user) {
-                return res.status(400).json({success: false, message: 'Пользователь не найден'})
+                return res.status(400).json({success: false, message: 'Некорректные данные'})
             }
             const isMatch = await bcrypt.compare(password, user.password)
             if (!isMatch) {
@@ -67,7 +70,7 @@ router.post(
             }
             const token = jwt.sign(
                 {userId: user._id},
-                'dsdadasdsad',
+                SECRET_TOKEN,
                 {expiresIn: '1h'}
             )
             res.json({
@@ -81,20 +84,20 @@ router.post(
         }
     })
 
-router.post(
-    '/logout',
-    async function (req, res) {
-        try {
-            const user = await User.findOne({token})
-            if (!user) {
-                return res.status(400).json({success: false, message: 'Вы и так не войдены!'})
-            }
-            const isMatch = await bcrypt.compare(password, user.password)
-        } catch (e) {
-            res.status(500).json({success: false, "message": `Server error: ${e}`})
-        }
-    }
-)
+// router.post(
+//     '/logout',
+//     async function (req, res) {
+//         try {
+//             const user = await User.findOne({token})
+//             if (!user) {
+//                 return res.status(400).json({success: false, message: 'Вы и так не войдены!'})
+//             }
+//             const isMatch = await bcrypt.compare(password, user.password)
+//         } catch (e) {
+//             res.status(500).json({success: false, "message": `Server error: ${e}`})
+//         }
+//     }
+// )
 
 router.get('/news',
     async function (req, res, next) {
