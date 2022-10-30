@@ -1,23 +1,22 @@
 .cart-product {
   display: flex;
   box-sizing: border-box;
-  width: 956px;
-  height: 383px;
-  border-radius: 28px;
-  border-bottom: 3px solid black;
+  //width: 956px;
+  //height: 383px;
   margin-bottom: 40px;
 
   &__info {
     display: block;
     margin-left: 10px;
-
+    max-width: 900px;
     //&>* {
     //  margin-top: 10px;
     //}
   }
   &__image {
     width: 258px;
-    height: 345px;
+    height: 100%;
+    object-fit: cover;
   }
   &__title {
     font-size: 20px;
@@ -44,6 +43,7 @@
     color: rgba(0, 0, 0, 0.6);
   }
   &__producer {
+    margin-top: 5px;
     font-size: 18px;
   }
   &__type {
@@ -71,5 +71,101 @@
     &_right {
 
     }
+  }
+}
+
+@media only screen and (max-width: 950px) {
+  .cart-product {
+    &__image {
+      height: 320px;
+    }
+    &__title {
+      font-size: 18px;
+    }
+    &__description {
+      font-size: 14px;
+    }
+    &__price {
+      font-size: 20px;
+    }
+    &__old-price {
+      font-size: 14px;
+    }
+    &__producer {
+      font-size: 16px;
+    }
+    &__type {
+      font-size: 14px;
+    }
+    &__additional-information {
+      font-size: 14px;
+    }
+    &__button {
+      font-size: 10px;
+    }
+  }
+  .rating {
+    &__count {
+      font-size: 14px;
+    }
+  }
+}
+
+@media only screen and (max-width: 950px) {
+  .cart-product {
+    &__image {
+      height: 360px;
+    }
+  }
+}
+@media only screen and (max-width: 685px) {
+  .cart-product {
+    &__image {
+      height: 400px;
+    }
+  }
+}
+@media only screen and (max-width: 645px) {
+  .cart-product {
+    &__image {
+      height: 420px;
+    }
+  }
+}
+@media only screen and (max-width: 625px) {
+  .cart-product {
+    &__image {
+      height: 440px;
+    }
+  }
+}
+@media only screen and (max-width: 580px) {
+  .cart-product {
+    &__image {
+      height: 480px;
+    }
+  }
+}
+@media only screen and (max-width: 500px) {
+  .cart-product {
+    &__image {
+      height: 570px;
+    }
+  }
+}
+@media only screen and (max-width: 470px) {
+  .cart-product {
+    flex-direction: column;
+    &__image {
+      width: 100%;
+      margin: 0 auto;
+    }
+    &__button {
+      margin-top: 10px;
+      font-size: 14px;
+    }
+  }
+  .rating {
+
   }
 }

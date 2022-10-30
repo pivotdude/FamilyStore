@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import './Notification.scss'
-import question from './question-svgrepo-com.svg'
-import warining from './warning-svgrepo-com.svg'
-import info from './info-svgrepo-com.svg'
-import close from './close.svg'
-import check from './checkMark.svg'
+import question from './img/question-svgrepo-com.svg'
+import warining from './img/warning-svgrepo-com.svg'
+import info from './img/info-svgrepo-com.svg'
+import close from './img/close.svg'
+import check from './img/checkMark.svg'
 
 interface NotificationProps {
     type: 'info' | 'warning' | 'question' | 'check'

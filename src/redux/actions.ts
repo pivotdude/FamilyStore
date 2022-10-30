@@ -6,7 +6,7 @@ import {
     FETCH_NEWS,
     AUTHORIZATION,
     REGISTRATION,
-    LOGOUT
+    LOGOUT, SHOW_SUBMIT, SHOW_WARNING
 } from './types'
 
 function fetchGETRequest(route: string, types: string):Object {
@@ -64,6 +64,20 @@ export function regAction(data: object):object {
     return fetchPostRequest('registration', REGISTRATION, data)
 }
 
-export function LogoutAction():object {
+export function LogoutAction():Object {
     return {type: LOGOUT}
+}
+
+export function clearAuth():Object {
+    return {type: AUTHORIZATION, payload: {}}
+}
+export function clearReg():Object {
+    return {type: REGISTRATION, payload: {}}
+}
+
+export function setNotifWarning(arr: Array<string>) {
+    return {type: SHOW_WARNING, payload: arr}
+}
+export function setNotifSubmit(arr: Array<string>) {
+    return {type: SHOW_SUBMIT, payload: arr}
 }

@@ -1,5 +1,7 @@
 import React from 'react';
+import './mediaQuerry.scss'
 import './OrderConditions.scss'
+
 
 const OrderConditions = () => {
     let count = 1

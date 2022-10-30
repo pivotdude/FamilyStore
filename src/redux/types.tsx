@@ -14,3 +14,7 @@ export const LOGOUT = 'AUTH/LOGOUT'
 export const SHOW_LOADER = 'APP/SHOW_LOADER'
 export const HIDE_LOADER = 'APP/HIDE_LOADER'
 
+export const SHOW_INFO = 'APP/SHOW_INFO'
+export const SHOW_QUESTION = 'APP/SHOW_QUESTION'
+export const SHOW_WARNING = 'APP/SHOW_WARNING'
+export const SHOW_SUBMIT = 'APP/SHOW_CHECK'

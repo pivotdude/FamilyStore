@@ -5,7 +5,7 @@ import useInput from "../../hooks/useInput";
 import AuthInput from "./AuthInput";
 import {useDispatch, useSelector} from "react-redux";
 import {regModel, StateModel} from "../../Models";
-import {authAction, regAction} from "../../redux/actions";
+import {clearReg, regAction, setNotifSubmit, setNotifWarning} from "../../redux/actions";
 import Notification from "../../components/Notification/Notification";
 
 const Registration = () => {
@@ -18,13 +18,14 @@ const Registration = () => {
     const dispatch: Function  = useDispatch()
     const reg: regModel = useSelector((state: StateModel) => state.authorization.reg)
     const loading: boolean = useSelector((state: StateModel) => state.app.loading)
-
-    const [success, setSuccess] = useState(false)
-    const [errors, setErrors] = useState()
+    const errors: Array<string> = useSelector((state: StateModel) => state.app.warnings_notifications)
+    const submits: Array<string> = useSelector((state: StateModel) => state.app.submits_notifications)
 
     useEffect(() => {
         if (reg.success == true) {
-            setSuccess(true)
+            let arr = [...submits, reg.message]
+            dispatch(setNotifSubmit(arr))
+            dispatch(clearReg())
         }
     }, [reg])
 
@@ -33,28 +34,23 @@ const Registration = () => {
         if (reg.success == false) {
             let arr = []
             if (reg.message instanceof Array) {
-                arr = reg.message.map(i => i.msg)
-                setErrors(arr)
+                let arr = reg.message.map(i => i.msg)
+                dispatch(setNotifWarning([...errors, ...arr]))
+                dispatch(clearReg())
             } else {
-                arr.push(reg.message)
-                setErrors(arr)
+                dispatch(setNotifWarning([...errors, reg.message]))
+                dispatch(clearReg())
             }
 
         }}, [reg])
-
-
-    if (loading) {
-        return <p>Loading...</p>
-    }
 
     //        if (reg.success == true) {
     //             navigate('/authorization')
     //         }
 
-
-
-
     const submitHandler  = (e: React.ChangeEvent<HTMLInputElement>)  => {
+        dispatch(setNotifWarning([]))
+        dispatch(setNotifSubmit([]))
         const data = {
             email: email.value,
             password: password.value,
@@ -64,7 +60,6 @@ const Registration = () => {
     }
 
     return (
-        <div className='authorization'>
             <div className='container authorization__container'>
                 {/*{errors && <pre>{errors}</pre>}*/}
                 <form className="authorization-win">
@@ -82,10 +77,7 @@ const Registration = () => {
 
                     <a onClick={submitHandler} className='button authorization-win__button'>Auth</a>
                 </form>
-                {errors && errors.map(item => <Notification  type='warning' description={item} title='Ошибка' />)}
-                {success && <Notification type='check' title='Вы вошли' description='Вы успешно зарегестрировали аккаунт' />}
             </div>
-        </div>
     );
 };
 

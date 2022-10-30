@@ -39,7 +39,9 @@ export interface regModel {
 
 export interface StateModel {
     app: {
-        loading: boolean
+        loading: boolean,
+        warnings_notifications: Array<string>,
+        submits_notifications: Array<string>
     },
     news: {
         news: Array<NewsModel> | null

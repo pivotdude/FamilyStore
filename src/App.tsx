@@ -15,6 +15,8 @@ import NavigationAndButton from "./components/NavBars/NavigationAndButton";
 import Registration from "./pages/Authorization/Registration";
 import Profile from './pages/Profile/Profile'
 import Notification from "./components/Notification/Notification";
+import ErrorNotifications from "./components/Notification/ErrorNotifications";
+import SubmitNotifications from "./components/Notification/SubmitNotifications";
 
 function App() {
 
@@ -48,7 +50,10 @@ function App() {
                   <Route path='/profile' element={<Profile />} />
                   <Route path='/cart' element={<Cart products={products} />} />
               </Routes>
-
+                <div className='notifications'>
+                    <ErrorNotifications />
+                    <SubmitNotifications />
+                </div>
             </main>
 
 

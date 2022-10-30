@@ -1,6 +1,7 @@
 import React from 'react';
 import {ProductModel} from "../../Models";
 import CartProduct from "./CartProduct";
+import './mediaQuerry.scss'
 
 interface CartProductsProps {
     products: Array<ProductModel>

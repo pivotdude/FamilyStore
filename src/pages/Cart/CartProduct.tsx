@@ -9,8 +9,13 @@ interface CartProductProps {
 
 const CartProduct = (props: CartProductProps) => {
     let dl = props.product.description
-    if (dl.length > 3000) {
-        dl = dl.substr(0, 250)
+    if (dl.length > 250) {
+        dl = dl.substr(0, 250) + '...'
+    }
+
+    let title = props.product.description
+    if (title.length > 65) {
+        title = title.substr(0, 65) + '...'
     }
 
     return (
@@ -18,7 +23,7 @@ const CartProduct = (props: CartProductProps) => {
             <img className='cart-product__image' src={props.product.photos.big[0]} />
 
             <div className='cart-product__info'>
-                <p className='cart-product__title'>{props.product.title}</p>
+                <p className='cart-product__title'>{title}</p>
                 <p className='cart-product__description'>{dl}</p>
 
                 <div className='prices cart-product__prices'>

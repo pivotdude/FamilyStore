@@ -19,6 +19,7 @@ input {
 }
 
 .button {
+  cursor: pointer;
   text-decoration: None;
   font-weight: 600;
   background: #000000;
@@ -34,6 +35,20 @@ input {
   &:hover {
     color: rgba(255,255,255, 0.7);
   }
+}
+
+main {
+  display: flex;
+}
+
+.notifications {
+  display: flex;
+  top: 40px;
+  position: absolute;
+  flex-direction: column;
+  bottom: 0;
+  right: 0;
+  height: 100%;
 }
 
 @media only screen and (max-width: 1230px) {

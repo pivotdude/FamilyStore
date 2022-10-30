@@ -9,18 +9,25 @@ interface FaqElementProps {
 
 const FaqElement = (props: FaqElementProps) => {
 
-    let [isShowed, setIsShowed] = useState(false)
+    let [isShowed, setIsShowed] = useState(true)
 
     const ShowContent = (e: React.ChangeEvent<HTMLInputElement>) => {
         let node = e.target.parentNode.children[0].children[1]
 
-        setIsShowed(prev => !prev)
+        useEffect(() => {
+            setIsShowed(true)
+        }, [])
 
-        if (isShowed) {
-            node.style.display = 'none'
-        } else {
-            node.style.display = 'block'
+        // useEffect()
+
+
+        if (!isShowed) {
+            return <p>Null</p>
+            //node.style.display = 'none'
         }
+        // } else {
+        //     node.style.display = 'block'
+        // }
 
     }
     return (
