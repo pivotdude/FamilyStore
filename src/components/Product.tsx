@@ -10,15 +10,15 @@ interface ProductProps {
 const Product = (props: ProductProps) => {
     return (
         <div className='product'>
-            <img className='product__photo' src={props.product.photos.small[1]} alt={props.product.type}/>
+            <img className='product__photo' src={props.product.colors[0].photos.small[1]} alt={props.product.type}/>
 
             <div className="product-info">
                 <div className='product-info__col1'>
                     <a>{props.product.title}</a>
 
                     <div style={{display: 'flex', textAlign: 'center'}}>
-                        <p className='product-info__price'>{props.product.price}</p>
-                        <p className='product-info__old-price'>{props.product.oldPrice}</p>
+                        <p className='product-info__price'>{props.product.colors[0].price}</p>
+                        <p className='product-info__old-price'>{props.product.colors[0].oldPrice}</p>
                     </div>
 
                     <p className='product-info__type'>{props.product.type}</p>

@@ -36,6 +36,13 @@ const Authorization = () => {
             dispatch(clearAuth())
         }}, [auth])
 
+
+    useEffect(() => {
+        if (localStorage.getItem('login')) {
+            navigate('/profile')
+        }
+    }, [])
+
     const submitHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         const data = {
             email: email.value,

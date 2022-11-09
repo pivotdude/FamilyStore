@@ -51,6 +51,10 @@ main {
   height: 100%;
 }
 
+.page {
+  margin: 0 auto;
+}
+
 @media only screen and (max-width: 1230px) {
   .container {
     width: 80%;

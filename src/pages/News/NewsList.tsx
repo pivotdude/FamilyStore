@@ -21,10 +21,10 @@ const NewsList = () => {
 
 
     return (
-        <div className='news-list'>
+        <div className='news-list page'>
             <Banner color='white' image={banner} />
 
-            <div className="container news__container">
+            <div className="news__container container">
                 {news.map((onenews: NewsModel) => <News key={onenews._id} news={onenews} />)}
             </div>
         </div>

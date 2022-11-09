@@ -37,7 +37,7 @@ function fetchPostRequest(route: string, types: string, data:object) {
 }
 
 export function fetchProducts():Object {
-    return fetchGETRequest('products', FETCH_PRODUCTS)
+    return fetchGETRequest('products?limit=4', FETCH_PRODUCTS)
 }
 export function fetchProductsOnSearch(name:string):object {
     return fetchGETRequest(`products/search/${name}`, SEARCH_PRODUCTS)

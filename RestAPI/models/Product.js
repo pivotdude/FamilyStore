@@ -30,7 +30,7 @@ const schema = new Schema({
             ]
         },
     ],
-
+    reviews: [{type: Schema.Types.ObjectId, ref: 'Products', content: String}]
 })
 
 module.exports = model('Product', schema)

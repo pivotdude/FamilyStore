@@ -151,8 +151,9 @@ router.get('/products/:productId',
 router.get('/products/search/:searchName',
     async function (req, res, next) {
         let searchName = req.params["searchName"].toLowerCase()
-        let products = await Product.find({})
-        let results = products.filter(item => item.title.toLowerCase().includes(searchName));
+        let results = await Product.find({ "tags": {$in : [searchName]} })
+        // let results = products.filter(item => item.title.toLowerCase().includes(searchName)); old search logic
+
         console.log(results.length)
         res.status(200).json(results)
     }

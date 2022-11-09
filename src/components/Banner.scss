@@ -8,7 +8,6 @@
 
   &-bg {
     & {
-      height: 100%;
       width: 100%;
     };
 
@@ -24,6 +23,9 @@
       background: #F2E4E7;
     };
   }
+}
+.banner-bg {
+
 }
 @media only screen and (max-width: 1830px) {
   .banner{

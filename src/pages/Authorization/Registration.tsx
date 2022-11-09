@@ -44,6 +44,12 @@ const Registration = () => {
 
         }}, [reg])
 
+    useEffect(() => {
+        if (localStorage.getItem('login')) {
+            navigate('/profile')
+        }
+    }, [])
+
     //        if (reg.success == true) {
     //             navigate('/authorization')
     //         }

@@ -10,7 +10,7 @@ import AboutBanner from "./AboutBanner";
 
 const About = () => {
     return (
-        <div className='about'>
+        <div className='about page'>
             <Banner color='grey' image={banner} />
             <div className="container about__container">
                 <Ability />

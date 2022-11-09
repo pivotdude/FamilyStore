@@ -7,7 +7,7 @@ import banner from './img/banner-support.png'
 
 const Support = () => {
     return (
-        <div className=''>
+        <div className='support page'>
             <Banner color='white' image={banner}/>
             <div className="container Support__container">
                 <SupportSearch />

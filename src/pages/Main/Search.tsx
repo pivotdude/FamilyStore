@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import './Search.scss'
 import { useNavigate } from "react-router-dom";
 
+
 const Search = () => {
     const navigate = useNavigate();
     let [search, setSearch] = useState('')

@@ -8,7 +8,7 @@ import PopularProduct from './PopularProducts'
 const MainPage = () => {
 
     return (
-        <div className='MainPage'>
+        <div className='MainPage page'>
             <Banner color='pink' image={banner} />
             <div className="container MainPage__container">
                 <CompositeManagement />

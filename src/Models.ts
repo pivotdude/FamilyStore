@@ -1,21 +1,36 @@
 import {fetchNews, fetchProducts, fetchProductsOnSearch, hideLoader, showLoader} from "./redux/actions";
 
 export interface ProductModel {
-    _id: number,
     title: string,
     description: string,
-    price: number,
     type: string,
-    oldPrice: number,
+    composition: string,
     producer: string,
+    sales: number,
     rating: {
         rate: number,
         count: number,
     },
-    photos: {
-        big: Array<string>,
-        small: Array<string>,
-    }
+    colors: [
+        {
+            price: number,
+            oldPrice: number,
+            color_title: string,
+            image: string,
+            photos: {
+                big: [string],
+                small: [string],
+            },
+            sizes: [
+                {
+                    InternationalSize: string,
+                    RussianSize: string,
+                    Count: number,
+                }
+            ]
+        },
+    ],
+    reviews?: [{content: string}]
 }
 export interface NewsModel {
     _id: number,
